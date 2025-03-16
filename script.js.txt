@@ -1,0 +1,20 @@
+document.getElementById("downloadBtn").addEventListener("click", function() {
+    var videoLink = document.getElementById("videoLink").value;
+    var errorMessage = document.getElementById("errorMessage");
+
+    if (!videoLink) {
+        errorMessage.textContent = "Please enter a video URL.";
+        return;
+    }
+
+    // Regular Expression to check if it's a Facebook URL
+    var fbRegex = /(?:https?:\/\/)?(?:www\.)?facebook\.com\/(?:.*?\/)*videos\/(\d+)/;
+
+    if (fbRegex.test(videoLink)) {
+        errorMessage.textContent = "";  // Clear any previous errors
+        alert("Video download link will be here!");
+        // Replace with the actual download functionality as needed
+    } else {
+        errorMessage.textContent = "Please enter a valid Facebook video URL.";
+    }
+});
